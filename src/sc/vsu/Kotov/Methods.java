@@ -17,16 +17,16 @@ public class Methods {
     return num - Math.floor(num);
     }
 
-    public static void putPixel(Graphics2D g2d, int x, int y,double c){
-        Color prevColor = g2d.getColor();
+    public static void putPixel(Graphics g, int x, int y,double c){
+        Color prevColor = g.getColor();
         int maxColorNum = 255;
-        g2d.setColor(new Color((int) (maxColorNum*(1-c)),(int) (maxColorNum*(1-c)),(int) (maxColorNum*(1-c))));
-        g2d.drawLine(x,y,x,y);
-        g2d.setColor(prevColor);
+        g.setColor(new Color((int) (maxColorNum*(1-c)),(int) (maxColorNum*(1-c)),(int) (maxColorNum*(1-c))));
+        g.drawLine(x,y,x,y);
+        g.setColor(prevColor);
     }
 
-    public static void putPixel(Graphics2D g2d, int x, int y){
-        g2d.drawLine(x,y,x,y);
+    public static void putPixel(Graphics g, int x, int y){
+        g.drawLine(x,y,x,y);
     }
 
 
@@ -55,11 +55,7 @@ public class Methods {
             }
         }
 
-        public static void drawTriangle(Graphics2D g2d,int x1,int y1,int x2,int y2,int x3,int y3){
-            drawLine(g2d, x1, y1, x2, y2);
-            drawLine(g2d, x3, y3, x1, y1);
-            drawLine(g2d, x2, y2, x3, y3);
-    }
+
 
     public static void paintLineColorInterpolation(Graphics2D g2d,int x1, int y1, Color c1, int x2, int y2, Color c2){
 

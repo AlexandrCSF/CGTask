@@ -7,19 +7,23 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class NURBS extends JPanel implements MouseListener {
+    int DefaultHeight;
+    int DefaultWidth;
     int x;
     int y;
     ArrayList<WeightedPoint> Points = new ArrayList<WeightedPoint>();
     int Degree;
 
-    public NURBS(int degree) {
+    public NURBS(int degree,int defaultWidth,int defaultHeight) {
         addMouseListener(this);
         this.Degree = degree;
+        this.DefaultHeight = defaultHeight;
+        this.DefaultWidth = defaultWidth;
     }
 
 
     public void paintComponent(Graphics g) {
-        g.clearRect(0,0, 800, 600);
+        g.clearRect(0,0, DefaultWidth, DefaultHeight);
         g.setColor(Color.BLACK);
         for (WeightedPoint i: Points){
             g.fillOval(i.getX(), i.getY(), 8, 8);
